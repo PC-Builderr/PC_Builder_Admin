@@ -26,7 +26,7 @@ export const Nav: FunctionComponent<Props> = props => {
     const { authState, logout } = useLogout()
 
     return (
-        <Box w='full' bg='green.500'>
+        <Box w='full' bg='twitter.500'>
             <Container maxW='7xl' paddingBottom='1' paddingTop='1'>
                 <Flex>
                     <Center>
@@ -58,7 +58,7 @@ export const Nav: FunctionComponent<Props> = props => {
                                 </Text>
                                 <Text
                                     as={Link}
-                                    to='/orders'
+                                    to='/orders?tab=0'
                                     fontWeight='semibold'
                                     color='gray.50'
                                     p='2'
@@ -70,7 +70,7 @@ export const Nav: FunctionComponent<Props> = props => {
                                 </Center>
                                 <Menu>
                                     <MenuButton
-                                        colorScheme='green'
+                                        colorScheme='twitter'
                                         as={Button}
                                         rightIcon={<ChevronDownIcon />}
                                     >

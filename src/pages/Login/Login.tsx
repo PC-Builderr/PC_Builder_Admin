@@ -28,7 +28,7 @@ export const Login: FunctionComponent<Props> = props => {
                     onChange={changeHandler}
                 />
             </FormControl>
-            <Button isLoading={loading} type='submit' colorScheme='green' isFullWidth mt='7'>
+            <Button isLoading={loading} type='submit' colorScheme='twitter' isFullWidth mt='7'>
                 Login
             </Button>
         </Container>

@@ -9,7 +9,9 @@ export const Register: FunctionComponent<Props> = props => {
 
     return (
         <Container onSubmit={submitHandler} as='form' mt='16' maxW='sm'>
-            <Heading fontSize='2xl'>Create Account</Heading>
+            <Heading fontSize='2xl' color='gray.800'>
+                Create Account
+            </Heading>
             <FormControl id='name' mt='4' isRequired>
                 <FormLabel fontSize='sm'>Name</FormLabel>
                 <Input type='name' name='name' value={credentials.name} onChange={changeHandler} />
@@ -32,7 +34,7 @@ export const Register: FunctionComponent<Props> = props => {
                     onChange={changeHandler}
                 />
             </FormControl>
-            <Button isLoading={loading} type='submit' colorScheme='green' isFullWidth mt='7'>
+            <Button isLoading={loading} type='submit' colorScheme='twitter' isFullWidth mt='7'>
                 Create Account
             </Button>
         </Container>

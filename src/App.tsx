@@ -6,6 +6,7 @@ import { AuthContext } from './context/Auth/AuthContext'
 import { AuthContextInterface } from './context/Auth/AuthContext.interface'
 import { useRefreshToken } from './hooks/Auth/useRefreshToken'
 import { Login } from './pages/Login'
+import { Orders } from './pages/Orders'
 import { Register } from './pages/Register'
 
 interface Props {}
@@ -27,7 +28,7 @@ export const App: FunctionComponent<Props> = props => {
                         <h1>Products</h1>
                     </Route>
                     <Route path='/orders' exact>
-                        <h1>Orders</h1>
+                        <Orders />
                     </Route>
                     <Route path='/' exact>
                         <h1>Home</h1>

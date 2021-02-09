@@ -1,5 +1,4 @@
 import { useToast } from '@chakra-ui/react'
-import jwtDecode from 'jwt-decode'
 import {
     ChangeEvent,
     ChangeEventHandler,
@@ -9,11 +8,9 @@ import {
     useContext,
     useState
 } from 'react'
-import { LOGIN_API_URL, ONE_SECOND_IN_MS, REGISTER_API_URL } from '../../constants'
+import { REGISTER_API_URL } from '../../constants'
 import { AuthContext } from '../../context/Auth/AuthContext'
 import { AuthContextInterface } from '../../context/Auth/AuthContext.interface'
-import { DecodedToken } from '../../types/token/DecodedToken'
-import { TokenResponse } from '../../types/token/TokenResponse'
 
 interface InputState {
     name: string
