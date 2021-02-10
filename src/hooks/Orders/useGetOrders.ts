@@ -1,6 +1,5 @@
 import { useToast } from '@chakra-ui/react'
 import { useCallback, useContext, useEffect, useState } from 'react'
-import { PAYED_ORDERS_API_URL } from '../../constants'
 import { AuthContext } from '../../context/Auth/AuthContext'
 import { AuthContextInterface } from '../../context/Auth/AuthContext.interface'
 import { Order } from '../../types/dto/order/Order'

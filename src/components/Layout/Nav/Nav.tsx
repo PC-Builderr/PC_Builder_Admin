@@ -14,10 +14,8 @@ import {
     Spacer,
     Text
 } from '@chakra-ui/react'
-import React, { FunctionComponent, useContext } from 'react'
+import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../../context/Auth/AuthContext'
-import { AuthContextInterface } from '../../../context/Auth/AuthContext.interface'
 import { useLogout } from '../../../hooks/Auth/useLogout'
 
 interface Props {}

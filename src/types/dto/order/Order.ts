@@ -1,18 +1,24 @@
 import { User } from '../user/User'
 import { OrderProduct } from './OrderProduct'
 import { ShippingAddress } from './ShippingAddress'
+import { Admin } from '../admin/Admin'
 
 export interface Order {
     id: number
-    shippingPrice: number
-    productsPrice: number
-    recieptUrl?: string
+    shipmentNumber?: string
     paymentIntentId: string
-    total: number
     status: string
+    adminId?: number
+    admin?: Admin
     userId: number
+    user?: User
     shippingAddressId?: number
     shippingAddress?: ShippingAddress
-    user?: User
+    expectedDeliveryDate?: Date
+    pdfURL?: string
+    recieptUrl?: string
     orderProducts?: OrderProduct[]
+    productsPrice: number
+    shippingPrice: number
+    total: number
 }

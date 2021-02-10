@@ -1,10 +1,13 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import React, { FunctionComponent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { AdminOrdersTable } from '../../components/Orders/AdminOrdersTable'
-import { AllOrdersTable } from '../../components/Orders/AllOrdersTable'
-import { PayedOrdersTable } from '../../components/Orders/AvailableOrdersTable'
-import { ShippedOrdersTable } from '../../components/Orders/ShippedOrdersTable'
+import { OrdersTable } from '../../components/Orders/OrdersTable'
+import {
+    ADMIN_ORDERS_API_URL,
+    ALL_ORDERS_API_URL,
+    PAYED_ORDERS_API_URL,
+    SHIPPED_ORDERS_API_URL
+} from '../../constants'
 
 interface Props {}
 
@@ -36,10 +39,12 @@ export const Orders: FunctionComponent<Props> = props => {
                 </Tab>
             </TabList>
             <TabPanels borderBottomRadius='lg' border='1px' borderColor='gray.100' pb='0'>
-                <TabPanel pb='0'>{index === 0 && <PayedOrdersTable />}</TabPanel>
-                <TabPanel>{index === 1 && <AdminOrdersTable />}</TabPanel>
-                <TabPanel>{index === 2 && <ShippedOrdersTable />}</TabPanel>
-                <TabPanel>{index === 3 && <AllOrdersTable />}</TabPanel>
+                <TabPanel pb='0'>
+                    {index === 0 && <OrdersTable url={PAYED_ORDERS_API_URL} />}
+                </TabPanel>
+                <TabPanel>{index === 1 && <OrdersTable url={ADMIN_ORDERS_API_URL} />}</TabPanel>
+                <TabPanel>{index === 2 && <OrdersTable url={SHIPPED_ORDERS_API_URL} />}</TabPanel>
+                <TabPanel>{index === 3 && <OrdersTable url={ALL_ORDERS_API_URL} />}</TabPanel>
             </TabPanels>
         </Tabs>
     )
