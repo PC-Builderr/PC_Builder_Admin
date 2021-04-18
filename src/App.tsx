@@ -8,6 +8,7 @@ import { useRefreshToken } from './hooks/Auth/useRefreshToken'
 import { Login } from './pages/Login'
 import { Orders } from './pages/Orders'
 import { Register } from './pages/Register'
+import { Order } from './pages/Order'
 
 interface Props {}
 
@@ -29,6 +30,9 @@ export const App: FunctionComponent<Props> = props => {
                     </Route>
                     <Route path='/orders' exact>
                         <Orders />
+                    </Route>
+                    <Route path='/orders/:id' exact>
+                        <Order />
                     </Route>
                     <Route path='/' exact>
                         <h1>Home</h1>

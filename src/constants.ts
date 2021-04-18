@@ -14,6 +14,8 @@ export const ADMIN_ORDERS_API_URL: string = `${ORDERS_API_URL}/status/processing
 
 export const ALL_ORDERS_API_URL: string = `${ORDERS_API_URL}/all`
 
+export const FULL_ORDER_API_URL: string = `${ORDERS_API_URL}/full/`
+
 export const REQUEST_COURIER_API_URL: string = `${ORDERS_API_URL}/request-courier`
 export const PROCESS_ORDER_API_URL: string = `${ORDERS_API_URL}/process`
 export const FINISH_ORDER_API_URL: string = `${ORDERS_API_URL}/finish`

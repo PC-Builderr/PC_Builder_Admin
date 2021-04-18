@@ -1,0 +1,1 @@
+export { ShippingAddressTable } from './ShippingAddressTable'

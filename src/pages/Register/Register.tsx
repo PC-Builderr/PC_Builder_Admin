@@ -2,9 +2,7 @@ import { Button, Container, FormControl, FormLabel, Heading, Input } from '@chak
 import React, { FunctionComponent } from 'react'
 import { useRegister } from '../../hooks/Auth/useRegister'
 
-interface Props {}
-
-export const Register: FunctionComponent<Props> = props => {
+export const Register: FunctionComponent = props => {
     const { changeHandler, credentials, loading, submitHandler } = useRegister()
 
     return (

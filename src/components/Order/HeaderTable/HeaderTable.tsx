@@ -2,6 +2,9 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 import {
     Button,
     Center,
+    Divider,
+    Flex,
+    Heading,
     Link,
     Menu,
     MenuButton,
@@ -10,32 +13,41 @@ import {
     Modal,
     ModalContent,
     ModalOverlay,
+    Spacer,
     Spinner,
+    Table,
+    Tbody,
     Td,
     Tr
 } from '@chakra-ui/react'
-import React, { FunctionComponent, useMemo } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import { FunctionComponent, useMemo } from 'react'
 import {
-    REQUEST_COURIER_API_URL,
+    FINISH_ORDER_API_URL,
     PROCESS_ORDER_API_URL,
-    FINISH_ORDER_API_URL
+    REQUEST_COURIER_API_URL
 } from '../../../constants'
 import { useProcessOrder } from '../../../hooks/Orders/useProcessOrder'
 import { Order } from '../../../types/dto/order/Order'
 import { ORDER_STATUS } from '../../../types/dto/order/OrderStatus'
+import { TableLoader } from '../../Orders/TableLoader'
 
 interface Props {
     order: Order
 }
 
-export const TableRow: FunctionComponent<Props> = props => {
+const ActionStatuses: string[] = [
+    ORDER_STATUS.COURIER_REQUESTED,
+    ORDER_STATUS.PROCESSING,
+    ORDER_STATUS.PAYMENT_SUCCEEDED
+]
+
+export const HeaderTable: FunctionComponent<Props> = props => {
     const { order } = props
 
     const { isLoading, processOrder } = useProcessOrder()
 
     const requestCourier = processOrder(REQUEST_COURIER_API_URL, order.id)
-    const proccess = processOrder(PROCESS_ORDER_API_URL, order.id, '/orders?tab=1')
+    const proccess = processOrder(PROCESS_ORDER_API_URL, order.id)
     const finishOrder = processOrder(FINISH_ORDER_API_URL, order.id)
 
     const statusColor = useMemo<string>(() => {
@@ -64,38 +76,10 @@ export const TableRow: FunctionComponent<Props> = props => {
 
     return (
         <>
-            <Tr key={order.id}>
-                <Td textAlign='center'>{order.id}</Td>
-                <Td>
-                    <Link
-                        color='blue.600'
-                        href={process.env.REACT_APP_STRIPE_DASHBOARD_URL + order.paymentIntentId}
-                        isExternal
-                    >
-                        {(process.env.REACT_APP_STRIPE_DASHBOARD_URL + order.paymentIntentId).slice(
-                            0,
-                            22
-                        )}
-                        ...
-                    </Link>
-                </Td>
-                <Td>
-                    <Link color='blue.600' href={order.pdfURL} isExternal>
-                        {order.pdfURL?.slice(0, 22)}...
-                    </Link>
-                </Td>
-                <Td>
-                    <Link color='blue.600' href={order.recieptUrl} isExternal>
-                        {order.recieptUrl?.slice(0, 22)}...
-                    </Link>
-                </Td>
-                <Td fontSize='0.8rem' fontWeight='bold' color={statusColor}>
-                    {order.status}
-                </Td>
-                <Td fontWeight='semibold' color='gray.600' textAlign='center'>
-                    {order.total}лв.
-                </Td>
-                <Td alignItems='center'>
+            <Flex>
+                <Heading>Order</Heading>
+                <Spacer />
+                {ActionStatuses.includes(order.status) && (
                     <Menu>
                         <MenuButton
                             colorScheme='twitter'
@@ -105,9 +89,6 @@ export const TableRow: FunctionComponent<Props> = props => {
                             Actions
                         </MenuButton>
                         <MenuList>
-                            <MenuItem as={RouterLink} to={`/orders/${order.id}`}>
-                                Open Order
-                            </MenuItem>
                             {order.status === ORDER_STATUS.PAYMENT_SUCCEEDED && (
                                 <MenuItem onClick={proccess}>Process Order</MenuItem>
                             )}
@@ -119,12 +100,42 @@ export const TableRow: FunctionComponent<Props> = props => {
                             ) : null}
                         </MenuList>
                     </Menu>
-                </Td>
-            </Tr>
+                )}
+            </Flex>
+            <Divider />
+            <Table variant='unstyled'>
+                <Tbody>
+                    <Tr>
+                        <Td paddingLeft='0'>ID</Td>
+                        <Td>{order.id}</Td>
+                    </Tr>
+                    <Tr>
+                        <Td paddingLeft='0'>Status</Td>
+                        <Td color={statusColor} fontWeight='bold'>
+                            {order.status}
+                        </Td>
+                    </Tr>
+                    <Tr>
+                        <Td paddingLeft='0'>Stripe Dashboard</Td>
+                        <Td>
+                            <Link
+                                color='blue.600'
+                                href={
+                                    process.env.REACT_APP_STRIPE_DASHBOARD_URL +
+                                    order.paymentIntentId
+                                }
+                                isExternal
+                            >
+                                {process.env.REACT_APP_STRIPE_DASHBOARD_URL + order.paymentIntentId}
+                            </Link>
+                        </Td>
+                    </Tr>
+                </Tbody>
+            </Table>
             <Modal isOpen={isLoading} onClose={() => {}}>
                 <ModalOverlay />
                 <ModalContent background='transparent' shadow='none'>
-                    <Center mt='12' mb='6'>
+                    <Center mt='8' mb='6'>
                         <Spinner color='white' size='xl' />
                     </Center>
                 </ModalContent>

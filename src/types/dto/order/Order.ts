@@ -14,7 +14,7 @@ export interface Order {
     user?: User
     shippingAddressId?: number
     shippingAddress?: ShippingAddress
-    expectedDeliveryDate?: Date
+    expectedDeliveryDate?: string
     pdfURL?: string
     recieptUrl?: string
     orderProducts?: OrderProduct[]

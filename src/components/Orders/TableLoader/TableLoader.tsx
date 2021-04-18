@@ -10,7 +10,7 @@ export const TableLoader: FunctionComponent<Props> = props => {
         <>
             {props.loading ? (
                 <Center mt='8' mb='6'>
-                    <Spinner size='lg' />
+                    <Spinner size='xl' />
                 </Center>
             ) : null}
         </>

@@ -2,9 +2,7 @@ import { Button, Container, FormControl, FormLabel, Heading, Input } from '@chak
 import React, { FunctionComponent } from 'react'
 import { useLogin } from '../../hooks/Auth/useLogin'
 
-interface Props {}
-
-export const Login: FunctionComponent<Props> = props => {
+export const Login: FunctionComponent = props => {
     const { loading, changeHandler, credentials, submitHandler } = useLogin()
 
     return (

@@ -9,9 +9,7 @@ import {
     SHIPPED_ORDERS_API_URL
 } from '../../constants'
 
-interface Props {}
-
-export const Orders: FunctionComponent<Props> = props => {
+export const Orders: FunctionComponent = props => {
     const { search } = useLocation()
 
     const params: URLSearchParams = new URLSearchParams(search)
@@ -23,7 +21,7 @@ export const Orders: FunctionComponent<Props> = props => {
     const index: number = Number(params.get('tab')) ?? 0
 
     return (
-        <Tabs index={index} mt='4' variant='enclosed' colorScheme='twitter'>
+        <Tabs index={index} mt='12' variant='enclosed' colorScheme='twitter'>
             <TabList>
                 <Tab as={Link} to='/orders?tab=0'>
                     Available Orders
