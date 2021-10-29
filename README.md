@@ -58,16 +58,7 @@ compatibility between components the application ensurses that components are co
 </div>
 
 <br/>
-<br/>
 
-## PC Builder Repos
-### [PC Builder Front End](https://github.com/valentin30/PC_Builder_Frontend)
-
-### [PC Builder Back End](https://github.com/valentin30/PC_Builder_Backend)
-
-### [PC Builder Admin](https://github.com/valentin30/PC_Builder_Admin)
-
-### [PC Builder Products](https://github.com/valentin30/PC_Builder_Products)
 
 <br/>
 
@@ -95,28 +86,33 @@ These are all your finished orders.
 
 #### Order Page
 ##### On this page you can see the full information about an order like: 
-
-information about the client.
-
-information about the payment.
-
-products in the order.
-
-and files that need to be put on the packege before given to the courier.
+<ul>
+  <li>Information about the client.</li>
+  <li>Information about the payment.</li>
+  <li>Products in the order.</li>
+  <li>Files that need to be put on the packege before given to the courier.</li>
+</ul>
 
 ##### Order status can be: 
 
-AWAITING_PAYMENT - Order is not payed yet.
-
-PAYMENT_FAILED - Payment of the order has failed.
-
-PAYMENT_SUCCEEDED - Order is payed and is going to be placed in the available orders tab.
-
-PROCESSING - Administrator has taken the order.
-
-COURIER_REQUESTED - Administrator has finished processing your order and requested a courier.
-
-SHIPPED - The requested courier has taken the order
+<ul>
+  <li>AWAITING_PAYMENT - Order is not payed yet.</li>
+  <li>PAYMENT_FAILED - Payment of the order has failed.</li>
+  <li>PAYMENT_SUCCEEDED - Order is payed and is going to be placed in the available orders tab.</li>
+  <li>PROCESSING - Administrator has taken the order.</li>
+  <li>COURIER_REQUESTED - Administrator has finished processing your order and requested a courier.</li>
+  <li>SHIPPED - The requested courier has taken the order.</li>
+</ul>
 
 ![Screenshot from 2021-10-29 22-02-54](https://user-images.githubusercontent.com/57724836/139489528-99f1f20b-b2bd-4819-8ea3-384318be2eb0.png)
 
+<br/>
+
+## PC Builder Repos
+### [PC Builder Front End](https://github.com/valentin30/PC_Builder_Frontend)
+
+### [PC Builder Back End](https://github.com/valentin30/PC_Builder_Backend)
+
+### [PC Builder Admin](https://github.com/valentin30/PC_Builder_Admin)
+
+### [PC Builder Products](https://github.com/valentin30/PC_Builder_Products)
